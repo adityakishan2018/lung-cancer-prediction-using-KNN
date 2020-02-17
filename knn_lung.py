@@ -28,14 +28,14 @@ y = X.Result
 
 # Split dataset in training and test datasets
 #here we split the entire dataset in such a way that test set contains
-# 40% of the entire data set
+# 45% of the entire data set
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.45, random_state=0)
 print (X_train)
 print (X_test)
 
 
 # Instantiate the classifier
-# in the entire project same Naive bayes classifier has been used for comparison
+#  KNN classifier has been used
 #gnb = GaussianNB()
 #rfm=RandomForestClassifier(n_estimators=70, oob_score=True, n_jobs=-1,random_state=101, max_features=None, min_samples_leaf=30)
 knn=KNeighborsClassifier(n_neighbors=4)
@@ -54,7 +54,7 @@ used_features =[
 # Train classifier
 #here we train our classifier using the selected important attributes stored in
 # "used_features" array
-# also the second parameter in gnb.fit is the column which we want to predict using #the model
+# also the second parameter in knn.fit is the column which we want to predict using #the model
 # also we are storing the predicted values in "y_pred" by passing the test dataset as #input
 knn.fit(
     X_train[used_features].values,
